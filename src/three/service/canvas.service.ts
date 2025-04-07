@@ -56,6 +56,9 @@ export class CanvasService {
     const { innerWidth, innerHeight } = window;
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(innerWidth, innerHeight);
+
+    //const popoverEl = this.popover();
+    //renderer.domElement.appendChild(popoverEl);
     document.body.appendChild(renderer.domElement);
 
     return renderer;
@@ -75,5 +78,12 @@ export class CanvasService {
     };
     _GUI.add(props, 'cubeSpeed', -0.2, 0.2, 0.01);
     _GUI.add(props, 'toursSpeed', -0.2, 0.2, 0.01);
+  }
+
+  private popover(): HTMLDivElement {
+    const popover = document.createElement('div');
+    popover.classList.add('popover');
+    popover.innerHTML = 'Hello, World!';
+    return popover;
   }
 }
