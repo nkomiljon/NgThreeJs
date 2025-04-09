@@ -1,20 +1,21 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
-import { CanvasService } from '../three/service/canvas.service';
+import { ScreenComponent } from './components/screen/screen.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [ScreenComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'NgThreeJs';
-
-  private canvas = inject(CanvasService);
+  @ViewChild(ScreenComponent, { static: true, read: ElementRef })
+  private screenComponent!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    this.canvas.init();
-    //this.canvas.resize();
+    const canvas = this.screenComponent.nativeElement.querySelector('canvas.webgl');
+    console.log(
+      this.screenComponent.nativeElement.querySelector('canvas.webgl'),
+    );
   }
 }
