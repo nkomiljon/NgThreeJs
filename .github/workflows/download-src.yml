@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: ⬇️ Checkout repository
-        uses: actions/checkout@v3.1.5
+        uses: actions/checkout@v4
 
       - name: 📦 Zip the src folder
         run: |
@@ -17,7 +17,7 @@ jobs:
           zip -r artifacts/src-folder.zip src/
 
       - name: ☁️ Upload zipped src folder as artifact
-        uses: actions/upload-artifact@v3.1.5
+        uses: actions/upload-artifact@v4
         with:
           name: src-folder
           path: artifacts/src-folder.zip
