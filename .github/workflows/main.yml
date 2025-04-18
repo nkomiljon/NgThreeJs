@@ -13,10 +13,11 @@ jobs:
 
       - name: 📦 Zip folder
         run: |
-          zip -r folder.zip src/
+          mkdir -p artifacts
+          zip -r artifacts/folder.zip src/
 
       - name: ☁️ Upload zipped folder as artifact
         uses: actions/upload-artifact@v3
         with:
           name: src-folder
-          path: folder.zip
+          path: artifacts/folder.zip
