@@ -1,0 +1,23 @@
+name: 📥 Download Src Folder
+
+on:
+  workflow_dispatch:  # Manual trigger from GitHub UI
+
+jobs:
+  create-download:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 📦 Zip the src folder
+        run: |
+          mkdir -p artifacts
+          zip -r artifacts/src-folder.zip src/
+
+      - name: ☁️ Upload zipped src folder as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: src-folder
+          path: artifacts/src-folder.zip
