@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: ⬇️ Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.1.5
 
       - name: 📦 Zip the src folder
         run: |
