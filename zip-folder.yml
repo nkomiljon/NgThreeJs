@@ -1,0 +1,21 @@
+name: name: 📦 Zip and Upload Folder
+
+on:
+  workflow_dispatch:  # Manual trigger from GitHub UI
+jobs:
+  zip-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 📦 Zip folder
+        run: |
+          zip -r folder.zip src/
+
+      - name: ☁️ Upload zipped folder as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: src-folder
+          path: folder.zip
