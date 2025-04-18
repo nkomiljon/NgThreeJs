@@ -17,7 +17,7 @@ jobs:
           zip -r artifacts/src-folder.zip src/
 
       - name: ☁️ Upload zipped src folder as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.5
         with:
           name: src-folder
           path: artifacts/src-folder.zip
